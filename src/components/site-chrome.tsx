@@ -69,7 +69,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/booking" className="btn-rose hidden !px-5 !py-2.5 sm:inline-flex">
+          <Link to="/booking" className="btn-rose btn-bounce hidden !px-5 !py-2.5 sm:inline-flex">
             Book Now
           </Link>
           <button
@@ -173,8 +173,16 @@ export function SiteFooter() {
           </Link>
         </div>
       </div>
-      <div className="border-t border-line py-5 text-center text-xs text-muted">
-        © {new Date().getFullYear()} {siteMeta.name}. All rights reserved.
+      <div className="flex flex-col items-center justify-between gap-2 border-t border-line px-5 py-5 text-center text-xs text-muted sm:flex-row sm:px-8">
+        <p>
+          © {new Date().getFullYear()} {siteMeta.name}. All rights reserved.
+        </p>
+        <p>
+          Created by{" "}
+          <a href="https://2nicegroup.com" target="_blank" rel="noreferrer" className="font-semibold text-rose hover:underline">
+            2nicegroup.com
+          </a>
+        </p>
       </div>
     </footer>
   );
@@ -309,7 +317,7 @@ export function BackButton({ fallback = "/" }: { fallback?: string }) {
 }
 
 /** Outbound booking link to Schedulebility. */
-export function BookLink({ href, children, className = "btn-rose" }: { href: string; children: ReactNode; className?: string }) {
+export function BookLink({ href, children, className = "btn-rose btn-bounce" }: { href: string; children: ReactNode; className?: string }) {
   return (
     <a href={href} className={className}>
       {children}

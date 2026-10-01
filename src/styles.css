@@ -34,6 +34,7 @@ h3 {
   font-family: var(--font-display);
 }
 
+@layer components {
 /* Buttons */
 .btn-rose {
   display: inline-flex;
@@ -164,4 +165,58 @@ button:focus-visible {
 /* Brand gradient behind cut-out photos */
 .bg-brand {
   background: linear-gradient(145deg, var(--color-rose) 0%, #ff6a85 45%, var(--color-teal) 100%);
+}
+
+/* Promotion card: always stands out from the regular service cards */
+.promo-card {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(135deg, #fff5f7, #ecfdf9) padding-box,
+    linear-gradient(135deg, var(--color-rose), var(--color-teal)) border-box;
+  box-shadow: 0 16px 36px -16px rgb(224 0 38 / 0.45);
+}
+.promo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 35%, rgb(255 255 255 / 0.55) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: promo-shine 4s ease-in-out infinite;
+}
+@keyframes promo-shine {
+  0%, 60% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Buttons: hop on hover; book buttons also bounce gently on their own */
+.btn-rose:hover,
+.btn-teal:hover {
+  animation: btn-hop 0.5s ease;
+}
+@keyframes btn-hop {
+  0% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-5px) scale(1.04); }
+  65% { transform: translateY(1px) scale(0.98); }
+  100% { transform: translateY(-1px) scale(1); }
+}
+.btn-bounce {
+  animation: btn-bounce 2.6s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+}
+@keyframes btn-bounce {
+  0%, 55%, 100% { transform: translateY(0) scale(1, 1); }
+  62% { transform: translateY(0) scale(1.06, 0.94); }
+  72% { transform: translateY(-7px) scale(0.97, 1.04); }
+  82% { transform: translateY(0) scale(1.03, 0.97); }
+  88% { transform: translateY(-2px) scale(1, 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-bounce,
+  .btn-rose:hover,
+  .btn-teal:hover,
+  .promo-card::after {
+    animation: none;
+  }
+}
 }

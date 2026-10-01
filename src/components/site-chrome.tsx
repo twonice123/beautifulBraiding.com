@@ -9,6 +9,7 @@ const NAV = [
   { to: "/promotion", label: "Promotion" },
   { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About Us" },
+  { to: "/policy", label: "Policies" },
 ];
 
 /* ---------- Brand icons (lucide no longer ships brand marks) ---------- */

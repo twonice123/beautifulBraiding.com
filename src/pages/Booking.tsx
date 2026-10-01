@@ -46,6 +46,13 @@ export default function Booking() {
           </Link>
         ))}
       </div>
+      <p className="mt-8 text-center text-sm text-muted">
+        A $30 non-refundable deposit is required to confirm your appointment. Please read{" "}
+        <Link to="/policy" className="font-medium text-rose underline underline-offset-4">
+          our policies
+        </Link>{" "}
+        before booking.
+      </p>
     </section>
   );
 }

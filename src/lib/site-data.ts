@@ -169,3 +169,62 @@ export const gallery = [
   { src: "/images/320a4637cdb64e3c8abd7f14d4f53bf6.jpg", alt: "Small knotless twist", tall: false },
   { src: "/images/00a679d7ccbdd0fd9885de0f345e2916.jpg", alt: "Medium knotless twist", tall: true },
 ];
+
+/** Policy page (/policy). Wording matches the Eugenie Braids policy page. */
+export type PolicySection = { title: string; body?: string; list?: string[]; note?: string };
+export const POLICY = {
+  intro:
+    "Please read these policies before booking. Ticking “I agree” on the booking form confirms you’ve read them.",
+  deposit: {
+    amount: "$30",
+    text: "An initial non-refundable $30 deposit is required before your appointment is confirmed. The balance is paid in cash or Zelle.",
+  },
+  sections: [
+    {
+      title: "Booking & deposit",
+      body: "An initial non-refundable $30 deposit is required before your appointment is confirmed. The balance is paid in cash or Zelle on the day.",
+    },
+    {
+      title: "Cancellation & rescheduling",
+      body: "Please contact us at least 24 hours in advance. With proper notice, your deposit may be transferred once to a new appointment. Late notice may result in loss of the deposit.",
+    },
+    {
+      title: "Late arrivals",
+      body: "If you are running late, contact us as soon as possible. Late arrival may result in an additional charge, reduced service time, rescheduling or cancellation.",
+    },
+    {
+      title: "Hair preparation",
+      list: [
+        "Hair must be clean and freshly washed.",
+        "Hair must be properly blow-dried.",
+        "Please do not apply oils, grease or leave-in conditioner.",
+      ],
+      note: "Unprepared hair may require an additional fee or rescheduling.",
+    },
+    {
+      title: "Hair included",
+      body: "Braiding hair is provided on most styles. Bohemian styles include 100% human hair; bringing your own hair lowers the price.",
+    },
+    {
+      title: "Touch-ups & take-out",
+      body: "Clients pay half of the initial amount for touch-up services. Braid take-out is priced by braid size, not length.",
+    },
+    {
+      title: "Service timing",
+      body: "Braiding can take several hours depending on the style, size, length and condition of your natural hair. Please avoid scheduling important plans straight afterwards.",
+    },
+    {
+      title: "Additional charges",
+      body: "Extra charges may apply for extra length, extra fullness, custom styling or special colours that need more time and materials.",
+    },
+    { title: "Safety & hygiene", body: "We keep a clean salon and regularly sanitise our tools and equipment." },
+    {
+      title: "Privacy",
+      body: "Your contact and booking details are handled privately and securely. We never sell client information.",
+    },
+    {
+      title: "Respect",
+      body: "Harassment, abusive language or inappropriate conduct may result in cancellation or refusal of future service.",
+    },
+  ] as PolicySection[],
+};

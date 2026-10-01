@@ -10,6 +10,7 @@ import Booking from "@/pages/Booking";
 import Promotion from "@/pages/Promotion";
 import Gallery from "@/pages/Gallery";
 import About from "@/pages/About";
+import Policy from "@/pages/Policy";
 import NotFound from "@/pages/NotFound";
 
 function ScrollToTop() {
@@ -47,6 +48,8 @@ createRoot(document.getElementById("root")!).render(
           <Route path="promotion" element={<Promotion />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="about" element={<About />} />
+          <Route path="policy" element={<Policy />} />
+          <Route path="policies" element={<Policy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

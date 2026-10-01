@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CalendarCheck, Heart, Phone, Sparkles, Star } from "lucide-react";
-import { HERO_SLIDES, callUrl, categories, describe, gallery, promotion, siteMeta, whatsappUrl } from "@/lib/site-data";
+import { CalendarCheck, Heart, Phone, Star } from "lucide-react";
+import { HERO_SLIDES, POLICY, callUrl, categories, describe, gallery, promotion, siteMeta, whatsappUrl } from "@/lib/site-data";
 import { FacebookIcon, HoursBar, InstagramIcon, Marquee, Reveal, SectionHeading, WhatsAppIcon } from "@/components/site-chrome";
 import { useTitle } from "@/lib/use-title";
 import { ServiceCard } from "@/components/ServiceCard";
+import { PolicyGrid } from "@/components/PolicyGrid";
 
 function HeroSlideshow() {
   const [index, setIndex] = useState(0);
@@ -100,6 +101,28 @@ export default function Home() {
             </div>
           </div>
           <HeroSlideshow />
+        </div>
+      </section>
+
+      {/* Policies: right after the hero, so clients read them before booking */}
+      <section className="border-t border-line bg-gradient-to-b from-rose-soft to-white">
+        <div className="mx-auto max-w-5xl px-5 py-16 md:py-20">
+          <SectionHeading
+            eyebrow="Please read before booking"
+            title="Salon Policies"
+            copy={`A ${POLICY.deposit.amount} non-refundable deposit secures every appointment. Here is everything else to know before you book.`}
+          />
+          <div className="mt-10">
+            <PolicyGrid />
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Link to="/policy" className="btn-teal">
+              Full Policy Page
+            </Link>
+            <Link to="/booking" className="btn-rose btn-bounce">
+              Book Now
+            </Link>
+          </div>
         </div>
       </section>
 

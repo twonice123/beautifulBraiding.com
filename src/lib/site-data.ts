@@ -34,12 +34,14 @@ export type Category = {
   name: string;
   categoryId: number;
   image: string;
+  /** Background-removed version shown on the gradient cards. */
+  cutout: string;
   link: string;
   promo: boolean;
   subcategories: Subcategory[];
 };
 
-const rawCategories: Omit<Category, "slug" | "promo">[] = [
+const rawCategories: Omit<Category, "slug" | "promo" | "cutout">[] = [
   {
     name: "PROMOTION",
     categoryId: 7536,
@@ -112,6 +114,7 @@ const allCategories: Category[] = rawCategories.map((c) => ({
   ...c,
   name: sentenceCase(c.name),
   slug: slugify(c.name),
+  cutout: c.image.replace(/\.jpg$/, "-cutout.webp"),
   promo: c.name === "PROMOTION",
   subcategories: c.subcategories.map((s) => ({ ...s, name: sentenceCase(s.name) })),
 }));

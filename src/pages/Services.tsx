@@ -14,17 +14,17 @@ export default function Services() {
         title="Our Braiding Styles"
         copy="Choose a style to see the sizes we offer. Pricing and availability are shown on our booking page."
       />
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
         {categories.map((c, i) => (
           <Reveal key={c.slug} delay={(i % 3) * 90}>
             <Link to={`/services/${c.slug}`} className="card card-hover group block h-full overflow-hidden">
-              <div className="bg-brand aspect-[4/5] overflow-hidden">
-                <img src={c.image} alt={c.name} className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <div className="bg-brand aspect-square overflow-hidden">
+                <img src={c.cutout} alt={c.name} className="h-full w-full object-cover object-top drop-shadow-[0_10px_18px_rgb(0_0_0/0.25)] transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               </div>
-              <div className="p-5">
-                <h3 className="text-xl font-semibold">{c.name}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{describe(c.slug)}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-rose">
+              <div className="p-3 sm:p-4">
+                <h3 className="text-base font-semibold sm:text-lg">{c.name}</h3>
+                <p className="mt-1 hidden line-clamp-2 text-sm text-muted lg:block">{describe(c.slug)}</p>
+                <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-rose">
                   Book Now
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>

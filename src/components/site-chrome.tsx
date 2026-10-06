@@ -44,7 +44,32 @@ export const SOCIALS = [
   { href: siteMeta.instagram, label: "Instagram", Icon: InstagramIcon },
   { href: siteMeta.facebook, label: "Facebook", Icon: FacebookIcon },
   { href: whatsappUrl, label: "WhatsApp", Icon: WhatsAppIcon },
-];
+].filter((s) => s.href);
+
+/**
+ * Social icons that stand out: filled brand gradient, white icon, shadow,
+ * a gentle staggered "pop" and a lift on hover.
+ */
+export function SocialIcons({ exclude = [], className = "" }: { exclude?: string[]; className?: string }) {
+  return (
+    <div className={`flex flex-wrap items-center gap-2.5 ${className}`}>
+      {SOCIALS.filter((s) => !exclude.includes(s.label)).map(({ href, label, Icon }, i) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={label}
+          style={{ animationDelay: `${i * 0.25}s` }}
+          className="social-pop bg-brand flex h-11 w-11 items-center justify-center rounded-full text-white shadow-lg shadow-rose/30 ring-2 ring-white transition-transform hover:-translate-y-1 hover:scale-110"
+        >
+          <Icon className="h-5 w-5" />
+        </a>
+      ))}
+    </div>
+  );
+}
+
 
 /* ---------- Header ---------- */
 
@@ -120,20 +145,7 @@ export function SiteFooter() {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             Neat, beautiful protective styles in Houston, Texas. Book online in a few taps.
           </p>
-          <div className="mt-5 flex gap-3">
-            {SOCIALS.map(({ href, label, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-rose shadow-sm transition-colors hover:bg-rose hover:text-white"
-              >
-                <Icon />
-              </a>
-            ))}
-          </div>
+          <SocialIcons className="mt-5" />
         </div>
 
         <div>
@@ -270,31 +282,26 @@ export function Marquee() {
   );
 }
 
+/** Salon hours: a short strip, two columns even on phones. */
 export function HoursBar() {
   return (
     <section className="border-y border-line bg-teal-soft">
-      <div className="mx-auto max-w-6xl px-5 py-10">
-        <div className="flex flex-col items-center gap-3 text-center md:flex-row md:justify-between md:text-left">
-          <div className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-rose shadow-sm">
-              <Clock className="h-5 w-5" />
-            </span>
-            <div>
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-teal-ink">Salon Hours</p>
-              <h2 className="text-2xl font-semibold md:text-3xl">Open 24 Hours, Mon to Thu</h2>
-            </div>
-          </div>
-          <p className="max-w-md text-sm leading-relaxed text-muted">
-            Walk-ins welcome <span className="font-medium text-ink">8 AM – 8 PM</span>, Monday through Thursday. After{" "}
-            <span className="font-medium text-ink">8 PM</span>, appointments only.
-          </p>
-        </div>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {HOURS.map((h) => (
-            <div key={h.day} className="card flex flex-col gap-1 p-5 text-center">
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-rose">{h.day}</p>
-              <p className="font-display text-xl font-semibold">{h.detail}</p>
-              <p className="text-xs leading-snug text-muted">{h.note}</p>
+      <div className="mx-auto max-w-3xl px-4 py-6 md:py-8">
+        <p className="flex items-center justify-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-teal-ink">
+          <Clock className="h-4 w-4" /> Salon Hours
+        </p>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:gap-3">
+          {HOURS.map((h, i) => (
+            <div
+              key={h.day}
+              className={`card px-2 py-3 text-center sm:p-4 ${
+                HOURS.length % 2 === 1 && i === HOURS.length - 1 ? "col-span-2" : ""
+              }`}
+            >
+              <p className="text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-rose sm:text-xs sm:tracking-[0.2em]">
+                {h.day}
+              </p>
+              <p className="mt-1 font-display text-sm font-semibold sm:text-lg">{h.time}</p>
             </div>
           ))}
         </div>

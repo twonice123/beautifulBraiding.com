@@ -8,6 +8,8 @@
   --color-teal: #00e0bb; /* bright teal, for decoration and fills */
   --color-teal-ink: #007a66; /* darker teal, readable as text on white */
   --color-teal-soft: #e6fcf8;
+  --color-rose-light: #ff6b84; /* lighter red, used in gradient text on dark */
+  --color-paper: #fff8f9; /* policy board background */
   --color-ink: #1f1a1c;
   --color-muted: #6b6266;
   --color-line: #f0e6e8;
@@ -221,4 +223,23 @@ button:focus-visible {
     animation: none;
   }
 }
+}
+
+/* Social icons: a soft pop every few seconds, staggered per icon */
+@keyframes social-pop {
+  0%, 70%, 100% { transform: scale(1); }
+  78% { transform: scale(1.18) rotate(-6deg); }
+  86% { transform: scale(0.95) rotate(4deg); }
+  93% { transform: scale(1.05); }
+}
+.social-pop {
+  animation: social-pop 3.5s ease-in-out infinite;
+}
+.social-pop:hover {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .social-pop {
+    animation: none;
+  }
 }

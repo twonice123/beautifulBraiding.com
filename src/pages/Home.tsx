@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CalendarCheck, Heart, Phone, Star } from "lucide-react";
-import { HERO_SLIDES, callUrl, categories, describe, gallery, promotion, siteMeta, whatsappUrl } from "@/lib/site-data";
-import { FacebookIcon, HoursBar, InstagramIcon, Marquee, Reveal, SectionHeading, WhatsAppIcon } from "@/components/site-chrome";
+import { HERO_SLIDES, HERO_TEXT, callUrl, categories, describe, gallery, promotion, siteMeta, whatsappUrl } from "@/lib/site-data";
+import { HoursBar, Marquee, Reveal, SectionHeading, SocialIcons, WhatsAppIcon } from "@/components/site-chrome";
 import { useTitle } from "@/lib/use-title";
 import { ServiceCard } from "@/components/ServiceCard";
 import { PolicyBoard } from "@/components/PolicyBoard";
@@ -66,8 +66,7 @@ export default function Home() {
             </h1>
             <div className="rule-brand mx-auto mt-6 w-32 md:mx-0" />
             <p className="mx-auto mt-6 max-w-lg text-sm leading-relaxed text-muted md:mx-0 md:text-base">
-              Boho braids, knotless braids, goddess knotless and knotless twists, done neatly and with care in
-              Houston, Texas. Pick your style and book your appointment online in minutes.
+              {HERO_TEXT}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
               <Link to="/booking" className="btn-rose btn-bounce">
@@ -90,14 +89,7 @@ export default function Home() {
                 </span>
                 WhatsApp us
               </a>
-              <div className="flex items-center gap-2">
-                <a href={siteMeta.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-soft text-rose transition-colors hover:bg-rose hover:text-white">
-                  <InstagramIcon className="h-4 w-4" />
-                </a>
-                <a href={siteMeta.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-soft text-rose transition-colors hover:bg-rose hover:text-white">
-                  <FacebookIcon className="h-4 w-4" />
-                </a>
-              </div>
+              <SocialIcons exclude={["WhatsApp"]} />
             </div>
           </div>
           <HeroSlideshow />

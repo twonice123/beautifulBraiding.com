@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Heart, MapPin, Phone, Sparkles, Star } from "lucide-react";
 import { callUrl, mapsUrl, siteMeta, whatsappUrl } from "@/lib/site-data";
-import { HoursBar, Reveal, SOCIALS, SectionHeading, WhatsAppIcon } from "@/components/site-chrome";
+import { HoursBar, Reveal, SectionHeading, SocialIcons, WhatsAppIcon } from "@/components/site-chrome";
 import { useTitle } from "@/lib/use-title";
 
 export default function About() {
@@ -79,20 +79,7 @@ export default function About() {
             <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-rose">
               <WhatsAppIcon className="h-5 w-5 text-rose" /> Chat on WhatsApp
             </a>
-            <div className="flex gap-3 pt-2">
-              {SOCIALS.map(({ href, label, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-soft text-rose transition-colors hover:bg-rose hover:text-white"
-                >
-                  <Icon />
-                </a>
-              ))}
-            </div>
+            <SocialIcons className="pt-2" />
           </div>
           <iframe
             title="Map to Beautiful Braiding"

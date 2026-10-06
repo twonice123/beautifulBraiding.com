@@ -13,19 +13,18 @@ export const siteMeta = {
   facebook: "https://www.facebook.com/share/1C92dSbgsV/",
 };
 
+/** Short line under the homepage headline. */
+export const HERO_TEXT = "Neat, beautiful braids in Houston, Texas. Book online in minutes.";
+
 export const whatsappUrl = `https://wa.me/${siteMeta.phone.replace(/\D/g, "")}`;
 export const callUrl = `tel:${siteMeta.phone}`;
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteMeta.address)}`;
 
+/** Salon hours, shown as a short two-column strip. */
 export const HOURS = [
-  {
-    day: "Mon – Thu",
-    detail: "Open 24 hours",
-    note: "Walk-ins 8 AM – 8 PM · Appointments only after 8 PM",
-  },
-  { day: "Friday", detail: "6 AM – 8 PM", note: "Walk-ins & appointments" },
-  { day: "Saturday", detail: "6 AM – 8 PM", note: "Walk-ins & appointments" },
-  { day: "Sunday", detail: "9 AM – 4 PM", note: "Walk-ins & appointments" },
+  { day: "Mon – Thu", time: "Open 24 hours" },
+  { day: "Fri & Sat", time: "6:00 AM – 8:00 PM" },
+  { day: "Sunday", time: "9:00 AM – 4:00 PM" },
 ];
 
 export type Subcategory = { name: string; subcatId: number; image: string; link: string };

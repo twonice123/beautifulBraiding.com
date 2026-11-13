@@ -191,8 +191,8 @@ export function SiteFooter() {
         </p>
         <p>
           Created by{" "}
-          <a href="https://2nicegroup.com" target="_blank" rel="noreferrer" className="font-semibold text-rose hover:underline">
-            2nicegroup.com
+          <a href="https://web95pro.com" target="_blank" rel="noreferrer" className="font-semibold text-rose hover:underline">
+            web95pro.com
           </a>
         </p>
       </div>
